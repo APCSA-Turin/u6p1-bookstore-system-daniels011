@@ -37,14 +37,16 @@ public class User{
     public String bookListInfo(){ // returns info about the booklist
         String bookInfo = "";
         Book firstBook = books[0];
-        if (firstBook.getTitle() == null) {
+        if (firstBook == null) {
             return "empty";
         } else {
             bookInfo += "Name: " + getName();
             bookInfo += ("\n Id: " + getId());
             bookInfo += ("\n Books: ");
             for (Book bookIndex : books){
-                bookInfo += ("\n" + bookIndex.bookInfo());
+                if (bookIndex != null){
+                    bookInfo += ("\n" + bookIndex.bookInfo());
+                }
             }
             return bookInfo;
         }
